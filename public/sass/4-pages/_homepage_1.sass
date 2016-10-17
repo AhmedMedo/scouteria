@@ -1,0 +1,197 @@
+/* Header
+/* Header Style (Not Members)
+.header
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  padding: 20px 0
+  z-index: 999
+  background-color: transparent
+  +transition-property(all)
+  +transition-duration($tr-dur)
+  .logo
+    float: left
+    width: 223px
+    height: 25px
+    margin-top: 12px
+    opacity: 0
+    display: none
+  .logo-active
+    opacity: 1
+    display: block
+  .account-area
+    float: right
+/* Header Sticky
+.header-sticky
+  background-color: $white
+  +transition-property(all)
+  +transition-duration($tr-dur)
+  .btn-default
+    color: $main
+    background-color: transparent
+    border: $border-size solid $main
+  .btn-no-border
+    color: $main
+
+
+.main-slider
+  position: relative
+  overflow: hidden
+  width: 100%
+  .swiper-pagination-bullet
+    width: 12px
+    height: 12px
+    background-color: transparent
+    border: $border-size+1 solid $white
+    bottom: 25px
+  .swiper-pagination-bullet-active
+    background-color: $white
+  .swiper-slide
+    min-height: 720px
+    width: 100%
+    color: $white
+    +background-size(cover)
+    background-position: center
+    background-repeat: no-repeat
+    text-align: center
+    +display-flex
+    +align-items(center)
+    +justify-content(center)
+    .slider-caption
+      width: 40%
+      margin: 0 auto
+
+.section-title-dark
+  color: $main
+  +text-shadow(rgba(0, 0, 0, 0.5) 0px 0px 12px)
+.section-title-light
+  color: $white
+.section-dark
+  background-color: $dark-grey
+.section-blue
+  background-color: $main
+.box-icon
+  margin-top: 30px
+.feature_box-title
+  color: $main
+  letter-spacing: 1px
+.feature_box-desc p
+  color: $white
+
+
+.section_about
+  h3
+    color: $dark-grey
+  p
+    color: $white
+
+.call-to-action
+  padding: 60px 0 80px 0
+  h1
+    margin-bottom: 25px
+
+
+footer
+  padding: 65px 0
+  background-color: $main
+  p
+    color: $white
+  .footer-social-icons
+    margin-left: -40px
+    li
+      float: left
+      list-style: none
+      margin-right: 15px
+      &:last-child
+        margin: 0
+      i
+        color: $main
+        background-color: $white
+        +border-radius(50%)
+        width: 40px
+        height: 40px
+        line-height: 40px
+        text-align: center
+        +transition-property(all)
+        +transition-duration($tr-dur)
+        &:hover
+          opacity: 0.7
+  .bottom-bar-footer
+    margin-left: -20px
+    li
+      float: left
+      list-style: none
+      margin: 0 15px
+      a
+        text-decoration: none
+        color: $white
+
+
+#signup-modal, #signin-modal
+  .modal-content
+    background-color: $dark-grey
+    color: $white
+    padding: 20px 50px 30px 50px
+    h3
+      color: $main
+
+    .signup-social
+      padding-top: 15px
+      span
+        float: left
+        margin-top: 8px
+        font-size: 16px
+        font-weight: bold
+      ul
+        float: right
+        li
+          float: left
+          list-style: none
+          margin-right: 8px
+          &:last-child
+            margin: 0
+          i
+            width: 40px
+            height: 40px
+            line-height: 40px
+            text-align: center
+            color: $white
+            background-color: $main
+            border-radius: 8px
+            +transition-property(all)
+            +transition-duration($tr-dur)
+            &:hover, &:focus
+              background-color: $white
+              color: $main
+    .signup-sp
+      position: relative
+      width: 100%
+      text-align: center
+      color: $main
+      margin: 12px 0
+      &::before, &::after
+        content: ''
+        position: absolute
+        top: 12px
+        background-color: $main
+        height: 2px
+        width: 47%
+      &::before
+        left: 0
+      &::after
+        right: 0
+    .form-control
+      height: 24px
+      padding: 0
+      color: $main
+      font-size: 14px
+      background-color: transparent
+      border: 0
+      border-bottom: $border-size solid $white
+      border-radius: 0
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075)
+      &:active, &:focus, &:visited
+        border-bottom: $border-size solid $main
+    .register-button
+      padding: 15px 0
