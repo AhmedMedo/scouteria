@@ -46,30 +46,40 @@
             <div class="signup-social clearfix">
               <span class="uppercase">Scout With</span>
               <ul>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-google-plus"></a></i></li>
+                   <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="{{route('linkedin')}}"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="{{route('facebooklogin')}}"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="{{route('googlelogin')}}"><i class="fa fa-google-plus"></a></i></li>
               </ul>
             </div>
             <div class="signup-sp"><p class="uppercase bold">or</p></div>
             <div class="signup-email">
-              <form method="POST">
+              <form method="POST" action="{{url('auth/register')}}">
+                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group">
                   <label for="signup-name">Name</label>
-                  <input type="name" class="form-control" id="signup-name">
+                  <input type="name" class="form-control" name="name" id="signup-name" required>
                 </div>
                 <div class="form-group">
                   <label for="signup-email">Email address</label>
-                  <input type="email" class="form-control" id="signup-email">
+                  <input type="email" class="form-control" name="email" id="signup-email" required>
                 </div>
                 <div class="form-group">
                   <label for="signup-password">Password</label>
-                  <input type="password" class="form-control" id="signup-password">
+                  <input type="password" class="form-control" name="password" id="signup-password" required>
                 </div>
                 <div class="register-button text-center">
                   <button type="submit" class="btn btn-primary">register</button>
                 </div>
+                    @if (count($errors->SignUpErrors->all()) > 0)
+
+
+                            <ul style="color: red">
+                                @foreach ($errors->SignUpErrors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        @endif
                 <div class="text-center uppercase"><p>
                   Already member? <a href="#" class="notmember-sign" class="close" data-dismiss="modal" aria-label="Close" role="button" data-toggle="modal" data-target="#signin-modal">Login</a>
                 </p></div>
@@ -359,6 +369,18 @@
   <script type="text/javascript">
     
         $('#signin-modal').modal('show');
+
+                            
+  </script>
+
+  @endif
+
+
+  @if (!$errors->SignUpErrors->isEmpty())
+
+  <script type="text/javascript">
+    
+        $('#signup-modal').modal('show');
 
                             
   </script>

@@ -100,22 +100,23 @@ class WelcomeController extends Controller
     public function HandelFaceBookProviderCallback()
     {
       $user=Socialite::driver('facebook')->user();
-      $userInfo=['name'=>$user->name,
-                       'email'=>$user->email,
-                       'password'=>$user->token,
-                       'first_name'=>$user->user['first_name'],
-                        'last_name'=>$user->user['last_name'],                        
-                      ];
-            $userDB=User::where('email',$user->email)->first();
-            if(!is_null($userDB))
-            {
-                Auth::login($userDB);
-            }
-            else{
-              $newUser=User::create($userInfo);
-              Auth::login($newUser);
-            }
-            return redirect('/');
+      dd($user);
+      // $userInfo=['name'=>$user->name,
+      //                  'email'=>$user->email,
+      //                  'password'=>$user->token,
+      //                  'first_name'=>$user->user['first_name'],
+      //                   'last_name'=>$user->user['last_name'],                        
+      //                 ];
+      //       $userDB=User::where('email',$user->email)->first();
+      //       if(!is_null($userDB))
+      //       {
+      //           Auth::login($userDB);
+      //       }
+      //       else{
+      //         $newUser=User::create($userInfo);
+      //         Auth::login($newUser);
+      //       }
+      //       return redirect('/');
             
             
     }

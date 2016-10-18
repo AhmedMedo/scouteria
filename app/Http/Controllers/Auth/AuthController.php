@@ -116,12 +116,13 @@ class AuthController extends Controller
 
       public function postRegister(Request $request)
     {
-        $validator = $this->validator($request->all());
+          $validator= Validator::make($request->all(), [
+            'name' => 'required', 'password' => 'required','email' =>'email|required|unique:users'
+        ]);
 
-        if ($validator->fails()) {
-            $this->throwValidationException(
-                $request, $validator
-            );
+        if ($validator->fails())
+        {
+            return redirect($this->loginPath())->withErrors($validator, 'SignUpErrors');
         }
 
         Auth::login($this->create($request->all()));

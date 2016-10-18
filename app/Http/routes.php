@@ -13,6 +13,8 @@
 
 Route::get('/','WelcomeController@index');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::post('auth/register', 'Auth\AuthController@postRegister');
+
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 Route::get('/auth/facebook',['as'=>'facebooklogin','uses'=>'WelcomeController@redirectToFaceBookProvider']);
